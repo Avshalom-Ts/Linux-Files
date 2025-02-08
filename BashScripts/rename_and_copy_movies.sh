@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source directory where movies are stored
-SOURCE_DIR="/mnt/sgFourTr/sambaShare/qBtDowmloads"
+SOURCE_DIR="/mnt/sgFourTr/sambaShare/qBtDowmloads/Movies"
 
 # Destination directory where renamed movies will be copied
 DEST_DIR="/mnt/sgFourTr/sambaShare/JellyfinLibs/Movies"
