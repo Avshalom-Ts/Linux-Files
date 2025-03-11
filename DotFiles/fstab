@@ -1,0 +1,28 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sda2
+UUID=328ad031-42f9-48b5-baa0-9a26310745e1	/         	btrfs     	rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvol=/@	0 0
+
+# /dev/sda2
+UUID=328ad031-42f9-48b5-baa0-9a26310745e1	/home     	btrfs     	rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvol=/@home	0 0
+
+# /dev/sda2
+UUID=328ad031-42f9-48b5-baa0-9a26310745e1	/var/log  	btrfs     	rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvol=/@log	0 0
+
+# /dev/sda2
+UUID=328ad031-42f9-48b5-baa0-9a26310745e1	/var/cache/pacman/pkg	btrfs     	rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvol=/@pkg	0 0
+
+# /dev/sda2
+UUID=328ad031-42f9-48b5-baa0-9a26310745e1	/.snapshots	btrfs     	rw,relatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvol=/@.snapshots	0 0
+
+# /dev/sda1
+UUID=3EB3-9E8A      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/sdb1 seagate4tr
+UUID=7cf64b23-6355-4c3d-b427-3fab417195bb /mnt/sgFourTr ext4 defaults 0 2
+#UUID=75c790ad-1d69-4d04-8edb-c501de12306e /mnt/seagate4tr ext4 defaults,uid=1000,gid=1000 0 2
+
+# /dev/sbc1 wetern digital 1 tr wdOneTr
+#UUID=b9cabb5b-5309-413e-b397-430589afda3b /mnt/wdOneTr ext4 defaults 0 2
