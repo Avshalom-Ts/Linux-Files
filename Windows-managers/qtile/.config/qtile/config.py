@@ -78,6 +78,8 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod], "d", lazy.spawn("dmenu_run"), desc="Launch dmenu"),
+    # Key([mod], "d", lazy.spawn("dmenu_run -nb '#282c34' -nf '#ffffff' -sb '#61afef' -sf '#282c34'"), desc="Launch dmenu"),
 ]
 
 # Add key bindings to switch VTs in Wayland.
