@@ -75,13 +75,12 @@ for aur_package in "${AUR_PACKAGES[@]}"; do
 done
 
 # Set ZSH as the default shell
-if [ "$SHELL" != "$(which )" ]; then
+if [ "$SHELL" != "$(which zsh)" ]; then
     echo "Changing default shell to ZSH..."
     chsh -s "$(which zsh)"
     echo "Default shell changed to ZSH. Please log out and log back in for changes to take effect."
     echo "Current shell: $SHELL"
-    # autoload -Uz zsh-newuser-install zsh-newuser-install -f
-    zsh
+    autoload -Uz zsh-newuser-install zsh-newuser-install -f
 else
     echo "ZSH is already the default shell."
     echo $SHELL
