@@ -14,6 +14,6 @@
     Run the script `after-clean-install.sh`
 
     ```bash
-    cd Linux-Files
+    cd ~/Windows-managers/QtileConfigs
     ./after-clean-install.sh
     ```
