@@ -80,7 +80,9 @@ if [ "$SHELL" != "$(which zsh)" ]; then
     chsh -s "$(which zsh)"
     echo "Default shell changed to ZSH. Please log out and log back in for changes to take effect."
     echo "Current shell: $SHELL"
-    autoload -Uz zsh-newuser-install zsh-newuser-install -f
+    # autoload -Uz zsh-newuser-install zsh-newuser-install -f
+    autoload -Uz compinstall
+    zhs
 else
     echo "ZSH is already the default shell."
     echo $SHELL
@@ -110,8 +112,39 @@ fi
 if [ ! -f "$HOME/.zshrc" ]; then
     echo "Creating symbolic link for .zshrc..."
     ln -s "$HOME/Windows-managers/.zshrc" "$HOME/.zshrc"
+    echo "Symbolic link for .zshrc created successfully." 
 else
     echo ".zshrc already exists. Skipping symbolic link creation."
+fi
+
+
+# Craete files if not exists, .zshenv .zprofile, .zlogin, .zlogout
+if [ ! -f "$HOME/.zshenv" ]; then
+    echo "Creating .zshenv file..."
+    echo "# Zsh environment variables" > "$HOME/.zshenv"
+else
+    echo ".zshenv already exists. Skipping creation."
+fi
+
+if [ ! -f "$HOME/.zprofile" ]; then
+    echo "Creating .zprofile file..."
+    echo "# Zsh profile settings" > "$HOME/.zprofile"
+else
+    echo ".zprofile already exists. Skipping creation."
+fi
+
+if [ ! -f "$HOME/.zlogin" ]; then
+    echo "Creating .zlogin file..."
+    echo "# Zsh login settings" > "$HOME/.zlogin"
+else
+    echo ".zlogin already exists. Skipping creation."
+fi
+
+if [ ! -f "$HOME/.zlogout" ]; then
+    echo "Creating .zlogout file..."
+    echo "# Zsh logout settings" > "$HOME/.zlogout"
+else
+    echo ".zlogout already exists. Skipping creation."
 fi
 
 # Create a symbolic link for the .bashrc file
