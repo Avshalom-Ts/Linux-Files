@@ -179,7 +179,7 @@ fi
 
 if [ ! -f "$HOME/.config/fastfetch/config-compact.jsonc" ]; then
     echo "Creating symbolic link for fastfetch config file..."
-    ln -s "$HOME/Linux-Files/Windows-managers/fastfetch/config-compact.jsonc" "$HOME/.config/fastfetch/config-compact.jsonc"
+    ln -s "$HOME/Linux-Files/Windows-managers/QtileConfigs/.config/fastfetch/config-compact.jsonc" "$HOME/.config/fastfetch/config-compact.jsonc"
 else
     echo "fastfetch config file already exists. Skipping symbolic link creation."
 fi
