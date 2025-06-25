@@ -102,11 +102,25 @@ echo "Installing Zsh plugins..."
 if [ ! -d "$HOME/.oh-my-zsh/custom/plugins" ]; then
     echo "Creating custom plugins directory..."
     mkdir -p "$HOME/.oh-my-zsh/custom/plugins"
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 else
     echo "Custom plugins directory already exists."
 fi
+
+# Check if the plugins are already installed
+if [ -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
+    echo "zsh-syntax-highlighting plugin is already installed."
+else
+    echo "Installing zsh-syntax-highlighting plugin..."
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+fi
+
+if [ -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]; then
+    echo "zsh-autosuggestions plugin is already installed."
+else
+    echo "Installing zsh-autosuggestions plugin..."
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+fi
+
 
 # Create a symbolic link for the .zshrc file
 if [ ! -f "$HOME/.zshrc" ]; then
