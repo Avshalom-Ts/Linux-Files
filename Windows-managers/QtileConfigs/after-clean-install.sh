@@ -15,16 +15,18 @@ echo "#####################Istall Qtile Dependencies####################"
 tput sgr0
 echo
 
-pacman-packages="git dmenu firefox"
+cat pacman-list.txt | xargs sudo apt-get -y install
 
-for package in "${pacman-packages[@]}"; do
-    if pacman -Qi "$package" &>/dev/null; then
-        echo "Package '$package' is already installed."
-    else
-        echo "Installing package '$package'..."
-        sudo pacman -S --noconfirm "$package"
-    fi
-done
+# pacman-packages="git dmenu firefox"
+
+# for package in "${pacman-packages[@]}"; do
+#     if pacman -Qi "$package" &>/dev/null; then
+#         echo "Package '$package' is already installed."
+#     else
+#         echo "Installing package '$package'..."
+#         sudo pacman -S --noconfirm "$package"
+#     fi
+# done
 
 echo
 tput setaf 3
