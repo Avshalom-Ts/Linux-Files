@@ -15,7 +15,7 @@ echo "#####################Istall Qtile Dependencies####################"
 tput sgr0
 echo
 
-cat pacman-list.txt | xargs sudo apt-get -y install
+cat pacman-list.txt | xargs sudo pacman -S --noconfirm
 
 # pacman-packages="git dmenu firefox"
 
