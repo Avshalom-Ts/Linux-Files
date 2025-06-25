@@ -12,8 +12,9 @@
     dmenu -y
     ```
 
-    Configure Dmenu: Edit `~/.config/qtile/config.py`
+    Copy the config for qtile to `~/.config/qtile/config.py`
 
     ```bash
-    vim ~/.config/qtile/config.py
-
+    cd Linux-Files
+    cp Windows-managers/QtileConfigs/.config/qtile/config.py ~/.config/qtile/config.py
+    ```
