@@ -15,7 +15,7 @@ echo "#####################Istall Qtile Dependencies####################"
 tput sgr0
 echo
 
-pacman-packages=(git dmenu firefox)
+pacman-packages="git dmenu firefox"
 
 for package in "${pacman-packages[@]}"; do
     if pacman -Qi "$package" &>/dev/null; then
