@@ -111,7 +111,7 @@ fi
 # Create a symbolic link for the .zshrc file
 if [ ! -f "$HOME/.zshrc" ]; then
     echo "Creating symbolic link for .zshrc..."
-    ln -s "$HOME/Windows-managers/.zshrc" "$HOME/.zshrc"
+    ln -s "$HOME/Linux-Files/Windows-managers/.zshrc" "$HOME/.zshrc"
     echo "Symbolic link for .zshrc created successfully." 
 else
     echo ".zshrc already exists. Skipping symbolic link creation."
@@ -150,7 +150,7 @@ fi
 # Create a symbolic link for the .bashrc file
 if [ ! -f "$HOME/.bashrc" ]; then
     echo "Creating symbolic link for .bashrc..."
-    ln -s "$HOME/Windows-managers/.bashrc" "$HOME/.bashrc"
+    ln -s "$HOME/Linux-Files/Windows-managers/.bashrc" "$HOME/.bashrc"
 else
     echo ".bashrc already exists. Skipping symbolic link creation."
 fi
