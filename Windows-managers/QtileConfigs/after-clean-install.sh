@@ -15,18 +15,26 @@ echo "#####################Istall Qtile Dependencies####################"
 tput sgr0
 echo
 
-cat pacman-list.txt | xargs sudo pacman -S --noconfirm
+# cat pacman-list.txt | xargs sudo pacman -S --noconfirm
+PACMAN_PACKAGES=(
+    "curl"
+    "git"
+    "vim"
+    "htop"
+)
 
-# pacman-packages="git dmenu firefox"
+# Update package list (for apt-based systems)
+echo "Updating package list..."
+sudo pacman -Syu --noconfirm
 
-# for package in "${pacman-packages[@]}"; do
-#     if pacman -Qi "$package" &>/dev/null; then
-#         echo "Package '$package' is already installed."
-#     else
-#         echo "Installing package '$package'..."
-#         sudo pacman -S --noconfirm "$package"
-#     fi
-# done
+for package in "${PACMAN_PACKAGES[@]}"; do
+    if pacman -Qi "$package" &>/dev/null; then
+        echo "Package '$package' is already installed."
+    else
+        echo "Installing package '$package'..."
+        sudo pacman -S --noconfirm "$package"
+    fi
+done
 
 echo
 tput setaf 3
