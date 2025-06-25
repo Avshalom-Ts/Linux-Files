@@ -21,6 +21,9 @@ PACMAN_PACKAGES=(
     "git"
     "vim"
     "htop"
+    "firefox"
+    "less"
+    "neofetch"
 )
 
 # Update package list (for apt-based systems)
