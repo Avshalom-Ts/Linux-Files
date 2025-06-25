@@ -4,17 +4,16 @@
 
 2. Istall the archlinux with the archinstall script, Select type: Descktop: Qtile
 
-3. Install Packages:
+3. Clone the [repo](https://github.com/Avshalom-Ts/Linux-Files):
 
     ```bash
-    sudo pacman -S \
-    git \
-    dmenu -y
+    sudo pacman -S git --noconfirm
+    git clone git@github.com:Avshalom-Ts/Linux-Files.git
     ```
 
-    Copy the config for qtile to `~/.config/qtile/config.py`
+    Run the script `after-clean-install.sh`
 
     ```bash
     cd Linux-Files
-    cp Windows-managers/QtileConfigs/.config/qtile/config.py ~/.config/qtile/config.py
+    ./after-clean-install.sh
     ```

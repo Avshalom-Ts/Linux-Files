@@ -24,6 +24,9 @@ PACMAN_PACKAGES=(
     "firefox"
     "less"
     "fastfetch"
+    "zsh"
+    "eza"
+    "fzf"
 )
 
 
@@ -70,6 +73,54 @@ for aur_package in "${AUR_PACKAGES[@]}"; do
         yay -S --noconfirm "$aur_package"
     fi
 done
+
+# Set ZSH as the default shell
+if [ "$SHELL" != "$(which zsh)" ]; then
+    echo "Changing default shell to ZSH..."
+    chsh -s "$(which zsh)"
+    echo "Default shell changed to ZSH. Please log out and log back in for changes to take effect."
+    echo "Current shell: $SHELL"
+    autoload -Uz zsh-newuser-install zsh-newuser-install -f
+else
+    echo "ZSH is already the default shell."
+    echo $SHELL
+fi
+
+# Run Zsh for the first time to initialize:
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "Installing Oh My Zsh..."
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+else
+    echo "Oh My Zsh is already installed."
+fi
+
+# Install additional plugins for Zsh
+echo "Installing Zsh plugins..."
+# Check if the custom plugins directory exists, if not create it
+if [ ! -d "$HOME/.oh-my-zsh/custom/plugins" ]; then
+    echo "Creating custom plugins directory..."
+    mkdir -p "$HOME/.oh-my-zsh/custom/plugins"
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+else
+    echo "Custom plugins directory already exists."
+fi
+
+# Create a symbolic link for the .zshrc file
+if [ ! -f "$HOME/.zshrc" ]; then
+    echo "Creating symbolic link for .zshrc..."
+    ln -s "$HOME/Windows-managers/.zshrc" "$HOME/.zshrc"
+else
+    echo ".zshrc already exists. Skipping symbolic link creation."
+fi
+
+# Create a symbolic link for the .bashrc file
+if [ ! -f "$HOME/.bashrc" ]; then
+    echo "Creating symbolic link for .bashrc..."
+    ln -s "$HOME/Windows-managers/.bashrc" "$HOME/.bashrc"
+else
+    echo ".bashrc already exists. Skipping symbolic link creation."
+fi
 
 
 echo
