@@ -27,6 +27,7 @@ PACMAN_PACKAGES=(
     "zsh"
     "eza"
     "fzf"
+    "man"
 )
 
 
@@ -61,6 +62,7 @@ fi
 
 AUR_PACKAGES=(
     "neofetch"
+    "visual-studio-code-bin"
 )
 
 # Install each AUR package in the list
@@ -167,6 +169,32 @@ if [ ! -f "$HOME/.bashrc" ]; then
     ln -s "$HOME/Linux-Files/Windows-managers/.bashrc" "$HOME/.bashrc"
 else
     echo ".bashrc already exists. Skipping symbolic link creation."
+fi
+
+# Create a symbolic link for the fastfetch config file
+if [ ! -d "$HOME/.config/fastfetch" ]; then
+    echo "Creating fastfetch config directory..."
+    mkdir -p "$HOME/.config/fastfetch"
+fi
+
+if [ ! -f "$HOME/.config/fastfetch/config-compact.jsonc" ]; then
+    echo "Creating symbolic link for fastfetch config file..."
+    ln -s "$HOME/Linux-Files/Windows-managers/fastfetch/config-compact.jsonc" "$HOME/.config/fastfetch/config-compact.jsonc"
+else
+    echo "fastfetch config file already exists. Skipping symbolic link creation."
+fi
+
+# Create a symbolic link for alacritty config file
+if [ ! -d "$HOME/.config/alacritty" ]; then
+    echo "Creating alacritty config directory..."
+    mkdir -p "$HOME/.config/alacritty"
+fi
+
+if [ ! -f "$HOME/.config/alacritty/alacritty.yml" ]; then
+    echo "Creating symbolic link for alacritty config file..."
+    ln -s "$HOME/Linux-Files/Windows-managers/alacritty/alacritty.yml" "$HOME/.config/alacritty/alacritty.yml"
+else
+    echo "Alacritty config file already exists. Skipping symbolic link creation."
 fi
 
 
