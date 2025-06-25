@@ -80,7 +80,8 @@ if [ "$SHELL" != "$(which )" ]; then
     chsh -s "$(which zsh)"
     echo "Default shell changed to ZSH. Please log out and log back in for changes to take effect."
     echo "Current shell: $SHELL"
-    autoload -Uz zsh-newuser-install zsh-newuser-install -f
+    # autoload -Uz zsh-newuser-install zsh-newuser-install -f
+    zsh
 else
     echo "ZSH is already the default shell."
     echo $SHELL
