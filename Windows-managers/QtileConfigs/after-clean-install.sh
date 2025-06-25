@@ -23,6 +23,7 @@ PACMAN_PACKAGES=(
     "htop"
     "firefox"
     "less"
+    "fastfetch"
 )
 
 
