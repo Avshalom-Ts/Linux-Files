@@ -5,7 +5,7 @@
 # Here’s a simple .zshenv file:
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export ZDOTDIR="$HOME/zsh"
+export ZDOTDIR="$HOME"
 
 export EDITOR="vim"
 
