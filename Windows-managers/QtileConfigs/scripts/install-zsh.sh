@@ -20,10 +20,8 @@ fi
 # Check if .zshrc file exist in the home directory and its symbolic links, If its regular file, delete it, If its Symbolic, do nothing.
 echo -e "\031[0;32mCreating Symbolic link for .zshrc ...\031[0m"
 if [ -f "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
-    echo "Found a regular .zshrc file in the home directory. Deleting it..."
+    echo "Found a regular .zshrc file in the home directory OR its Symbolic link . Deleting it..."
     rm "$HOME/.zshrc"
-else
-    echo "No regular .zshrc file found or it is already a symbolic link."
     # If it's a symbolic link, do nothing, else create a symbolic link
     if [ -L "$HOME/.zshrc" ]; then
         echo ".zshrc is already a symbolic link."
@@ -33,15 +31,16 @@ else
         echo "Symbolic link for .zshrc created successfully."
         
     fi
+else
+    echo "No regular .zshrc file found or it is already a symbolic link."
 fi
+
 
 
 # Check if .zshenv file exist in the home directory and its symbolic links, If its regular file, delete it, If its Symbolic, do nothing.
 if [ -f "$HOME/.zshenv" ] && [ ! -L "$HOME/.zshenv" ]; then
     echo "Found a regular .zshenv file in the home directory. Deleting it..."
     rm "$HOME/.zshenv"
-else
-    echo "No regular .zshenv file found or it is already a symbolic link."
     # If it's a symbolic link, do nothing, else create a symbolic link
     if [ -L "$HOME/.zshenv" ]; then
         echo ".zshenv is already a symbolic link."
@@ -51,6 +50,8 @@ else
         echo "Symbolic link for .zshenv created successfully."
         
     fi
+else
+    echo "No regular .zshenv file found or it is already a symbolic link."
 fi
 
 
@@ -58,8 +59,6 @@ fi
 if [ -f "$HOME/.zprofile" ] && [ ! -L "$HOME/.zprofile" ]; then
     echo "Found a regular .zprofile file in the home directory. Deleting it..."
     rm "$HOME/.zprofile"
-else
-    echo "No regular .zprofile file found or it is already a symbolic link."
     # If it's a symbolic link, do nothing, else create a symbolic link
     if [ -L "$HOME/.zprofile" ]; then
         echo ".zprofile is already a symbolic link."
@@ -69,6 +68,8 @@ else
         echo "Symbolic link for .zprofile created successfully."
         
     fi
+else
+    echo "No regular .zprofile file found or it is already a symbolic link."
 fi
 
 
@@ -76,8 +77,6 @@ fi
 if [ -f "$HOME/.zlogin" ] && [ ! -L "$HOME/.zlogin" ]; then
     echo "Found a regular .zlogin file in the home directory. Deleting it..."
     rm "$HOME/.zlogin"
-else
-    echo "No regular .zlogin file found or it is already a symbolic link."
     # If it's a symbolic link, do nothing, else create a symbolic link
     if [ -L "$HOME/.zlogin" ]; then
         echo ".zlogin is already a symbolic link."
@@ -87,14 +86,14 @@ else
         echo "Symbolic link for .zlogin created successfully."
         
     fi
+else
+    echo "No regular .zlogin file found or it is already a symbolic link."
 fi
 
 # Check if .zlogout file exist in the home directory and its symbolic links, If its regular file, delete it, If its Symbolic, do nothing.
 if [ -f "$HOME/.zlogout" ] && [ ! -L "$HOME/.zlogout" ]; then
     echo "Found a regular .zlogout file in the home directory. Deleting it..."
     rm "$HOME/.zlogout"
-else
-    echo "No regular .zlogout file found or it is already a symbolic link."
     # If it's a symbolic link, do nothing, else create a symbolic link
     if [ -L "$HOME/.zlogout" ]; then
         echo ".zlogout is already a symbolic link."
@@ -104,6 +103,8 @@ else
         echo "Symbolic link for .zlogout created successfully."
         
     fi
+else
+    echo "No regular .zlogout file found or it is already a symbolic link."
 fi
 
 # Set ZSH as the default shell
