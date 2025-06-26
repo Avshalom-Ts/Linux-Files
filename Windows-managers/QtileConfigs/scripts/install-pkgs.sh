@@ -81,7 +81,7 @@ fi
 
 
 # Install each AUR package in the list
-echo -e "\031[0;32mChecking and installing AUR packages...\031[0m"
+echo "Checking and installing AUR packages..."
 tput sgr0
 for aur_package in "${AUR_PACKAGES[@]}"; do
     if yay -Qi "$aur_package" &>/dev/null; then
