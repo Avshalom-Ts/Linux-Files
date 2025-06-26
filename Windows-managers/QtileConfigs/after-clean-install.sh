@@ -29,10 +29,10 @@ echo
 echo "Making all scripts executable..."
 chmod +x scripts/*.sh
 
-./scripts/install-pkgs.sh
-./scripts/install-zsh.sh
-./scripts/install-alacritty.sh
-./scripts/install-fastfetch.sh
+sh ./scripts/install-pkgs.sh
+sh ./scripts/install-zsh.sh
+sh ./scripts/install-alacritty.sh
+sh ./scripts/install-fastfetch.sh
 
 
 # Check if .bashrc file exist in the home directory and its symbolic links, If its regular file, delete it, If its Symbolic, do nothing.
