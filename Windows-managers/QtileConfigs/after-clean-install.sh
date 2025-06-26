@@ -76,6 +76,97 @@ for aur_package in "${AUR_PACKAGES[@]}"; do
     fi
 done
 
+
+
+# Check if .zshrc file exist in the home directory and its symbolic links, If its regular file, delete it, If its Symbolic, do nothing.
+echo "Creating Symbolic link for .zshrc"
+if [ -f "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
+    echo "Found a regular .zshrc file in the home directory OR its Symbolic link . Deleting it..."
+    rm "$HOME/.zshrc"
+else
+    echo "No regular .zshrc file found or it is already a symbolic link."
+    # If it's a symbolic link, do nothing, else create a symbolic link
+    if [ -L "$HOME/.zshrc" ]; then
+        echo ".zshrc is already a symbolic link."
+    else
+        echo "Creating symbolic link for .zshrc..."
+        ln -s "$HOME/Linux-Files/Windows-managers/.zshrc" "$HOME/.zshrc"
+        echo "Symbolic link for .zshrc created successfully."
+        
+    fi
+fi
+
+
+# Check if .zshenv file exist in the home directory and its symbolic links, If its regular file, delete it, If its Symbolic, do nothing.
+if [ -f "$HOME/.zshenv" ] && [ ! -L "$HOME/.zshenv" ]; then
+    echo "Found a regular .zshenv file in the home directory. Deleting it..."
+    rm "$HOME/.zshenv"
+else
+    echo "No regular .zshenv file found or it is already a symbolic link."
+    # If it's a symbolic link, do nothing, else create a symbolic link
+    if [ -L "$HOME/.zshenv" ]; then
+        echo ".zshenv is already a symbolic link."
+    else
+        echo "Creating symbolic link for .zshenv..."
+        ln -s "$HOME/Linux-Files/Windows-managers/.zshenv" "$HOME/.zshenv"
+        echo "Symbolic link for .zshenv created successfully."
+        
+    fi
+fi
+
+
+# Check if .zprofile file exist in the home directory and its symbolic links, If its regular file, delete it, If its Symbolic, do nothing.
+if [ -f "$HOME/.zprofile" ] && [ ! -L "$HOME/.zprofile" ]; then
+    echo "Found a regular .zprofile file in the home directory. Deleting it..."
+    rm "$HOME/.zprofile"
+else
+    echo "No regular .zprofile file found or it is already a symbolic link."
+    # If it's a symbolic link, do nothing, else create a symbolic link
+    if [ -L "$HOME/.zprofile" ]; then
+        echo ".zprofile is already a symbolic link."
+    else
+        echo "Creating symbolic link for .zprofile..."
+        ln -s "$HOME/Linux-Files/Windows-managers/.zprofile" "$HOME/.zprofile"
+        echo "Symbolic link for .zprofile created successfully."
+        
+    fi
+fi
+
+
+# Check if .zlogin file exist in the home directory and its symbolic links, If its regular file, delete it, If its Symbolic, do nothing.
+if [ -f "$HOME/.zlogin" ] && [ ! -L "$HOME/.zlogin" ]; then
+    echo "Found a regular .zlogin file in the home directory. Deleting it..."
+    rm "$HOME/.zlogin"
+else
+    echo "No regular .zlogin file found or it is already a symbolic link."
+    # If it's a symbolic link, do nothing, else create a symbolic link
+    if [ -L "$HOME/.zlogin" ]; then
+        echo ".zlogin is already a symbolic link."
+    else
+        echo "Creating symbolic link for .zlogin..."
+        ln -s "$HOME/Linux-Files/Windows-managers/.zlogin" "$HOME/.zlogin"
+        echo "Symbolic link for .zlogin created successfully."
+        
+    fi
+fi
+
+# Check if .zlogout file exist in the home directory and its symbolic links, If its regular file, delete it, If its Symbolic, do nothing.
+if [ -f "$HOME/.zlogout" ] && [ ! -L "$HOME/.zlogout" ]; then
+    echo "Found a regular .zlogout file in the home directory. Deleting it..."
+    rm "$HOME/.zlogout"
+else
+    echo "No regular .zlogout file found or it is already a symbolic link."
+    # If it's a symbolic link, do nothing, else create a symbolic link
+    if [ -L "$HOME/.zlogout" ]; then
+        echo ".zlogout is already a symbolic link."
+    else
+        echo "Creating symbolic link for .zlogout..."
+        ln -s "$HOME/Linux-Files/Windows-managers/.zlogout" "$HOME/.zlogout"
+        echo "Symbolic link for .zlogout created successfully."
+        
+    fi
+fi
+
 # Set ZSH as the default shell
 if [ "$SHELL" != "$(which zsh)" ]; then
     echo "Changing default shell to ZSH..."
@@ -83,8 +174,8 @@ if [ "$SHELL" != "$(which zsh)" ]; then
     echo "Default shell changed to ZSH. Please log out and log back in for changes to take effect."
     echo "Current shell: $SHELL"
     # autoload -Uz zsh-newuser-install zsh-newuser-install -f
-    autoload -Uz compinstall
-    zhs
+    # autoload -Uz compinstall
+    zsh
 else
     echo "ZSH is already the default shell."
     echo $SHELL
@@ -124,44 +215,6 @@ else
 fi
 
 
-# Create a symbolic link for the .zshrc file
-if [ ! -f "$HOME/.zshrc" ]; then
-    echo "Creating symbolic link for .zshrc..."
-    ln -s "$HOME/Linux-Files/Windows-managers/.zshrc" "$HOME/.zshrc"
-    echo "Symbolic link for .zshrc created successfully." 
-else
-    echo ".zshrc already exists. Skipping symbolic link creation."
-fi
-
-
-# Craete files if not exists, .zshenv .zprofile, .zlogin, .zlogout
-if [ ! -f "$HOME/.zshenv" ]; then
-    echo "Creating .zshenv file..."
-    echo "# Zsh environment variables" > "$HOME/.zshenv"
-else
-    echo ".zshenv already exists. Skipping creation."
-fi
-
-if [ ! -f "$HOME/.zprofile" ]; then
-    echo "Creating .zprofile file..."
-    echo "# Zsh profile settings" > "$HOME/.zprofile"
-else
-    echo ".zprofile already exists. Skipping creation."
-fi
-
-if [ ! -f "$HOME/.zlogin" ]; then
-    echo "Creating .zlogin file..."
-    echo "# Zsh login settings" > "$HOME/.zlogin"
-else
-    echo ".zlogin already exists. Skipping creation."
-fi
-
-if [ ! -f "$HOME/.zlogout" ]; then
-    echo "Creating .zlogout file..."
-    echo "# Zsh logout settings" > "$HOME/.zlogout"
-else
-    echo ".zlogout already exists. Skipping creation."
-fi
 
 # Create a symbolic link for the .bashrc file
 if [ ! -f "$HOME/.bashrc" ]; then
