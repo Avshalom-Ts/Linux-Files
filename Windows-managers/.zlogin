@@ -2,4 +2,4 @@
 
 # Start the Alacritty Terminal emulator
 # For example:
-exec alacritty
+# exec alacritty
