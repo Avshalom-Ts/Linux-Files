@@ -71,6 +71,29 @@ else
     fi
 fi
 
+# Check if autostart.sh file exist in the Qtile directory and its symbolic links, If its regular file, delete it, If its Symbolic, do nothing.
+if [ -f "$HOME/.config/qtile/autostart.sh" ] && [ ! -L "$HOME/.config/qtile/autostart.sh" ]; then
+    echo "Found a regular autostart.sh file in the Qtile directory. Deleting it..."
+    rm "$HOME/.config/qtile/autostart.sh"
+    echo "Creating symbolic link for autostart.sh..."
+    # Make autostart.sh executable
+    chmod +x "$HOME/Linux-Files/Windows-managers/QtileConfigs/.config/qtile/autostart.sh"
+    ln -s "$HOME/Linux-Files/Windows-managers/QtileConfigs/.config/qtile/autostart.sh" "$HOME/.config/qtile/autostart.sh"
+    echo "Symbolic link for autostart.sh created successfully."
+else
+    echo "No regular autostart.sh file found or it is already a symbolic link."
+    # If it's a symbolic link, do nothing, else create a symbolic link
+    if [ -L "$HOME/.config/qtile/autostart.sh" ]; then
+        echo "autostart.sh is already a symbolic link."
+    else
+        echo "Creating symbolic link for autostart.sh..."
+        # Make autostart.sh executable
+        chmod +x "$HOME/Linux-Files/Windows-managers/QtileConfigs/.config/qtile/autostart.sh"
+        ln -s "$HOME/Linux-Files/Windows-managers/QtileConfigs/.config/qtile/autostart.sh" "$HOME/.config/qtile/autostart.sh"
+        echo "Symbolic link for autostart.sh created successfully."
+    fi
+fi
+
 
 
 echo

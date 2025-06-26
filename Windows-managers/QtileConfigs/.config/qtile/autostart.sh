@@ -1,1 +1,1 @@
-# xrandr --output HDMI-1 --mode 1920x1080
+xrandr --screen 0 -s 1920x1080

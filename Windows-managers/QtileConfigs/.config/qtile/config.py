@@ -28,10 +28,15 @@ from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-import subprocess
+# import subprocess
 
 mod = "mod4"
 terminal = guess_terminal()
+
+
+# @hook.subscribe.startup_once
+# def set_resolution():
+#     subprocess.run(["xrandr", "--screen", "0", "-s", "1920x1080"])
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -150,32 +155,45 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
+                widget.CurrentLayout(), # Show the current layout name
+                widget.GroupBox(
+                    highlight_method='block',  # Highlight the current group with a block
+                    active="#FB9E3A",  # Color for active groups
+                    inactive="#FCEF91",  # Color for inactive groups
+                ),
                 widget.Prompt(),
-                widget.WindowName(),
+                widget.WindowName(
+                    foreground="#EA2F14",  # Color for the window name
+                    max_chars=50,  # Maximum characters to display
+                ),
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                # widget.TextBox("default config", name="default"),
+                # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
-                widget.Systray(),
+                widget.Systray(
+                    background="#282c34",  # Background color of the systray
+                ),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+                # widget.QuickExit(),
             ],
-            24,
+            30,  # The height of the bar
+            # margin=[6, 6, 6, 6],  # Margin around the bar
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            # background="#282c34",  # Background color of the bar
         ),
         # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
         # By default we handle these events delayed to already improve performance, however your system might still be struggling
         # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
         # x11_drag_polling_rate = 60,
+    wallpaper = "/home/azarviv/Linux-Files/wallpapers/671281.jpg",  # Set your wallpaper path here
+    wallpaper_mode = "fill",  # Options: "fill", "fit", "stretch
     ),
 ]
 
@@ -229,6 +247,3 @@ wl_xcursor_size = 24
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
 
-@hook.subscribe.startup_once
-def set_resolution():
-    subprocess.run(["xrandr", "--screen", "0", "-s", "1920x1080"])
