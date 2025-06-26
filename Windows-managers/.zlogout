@@ -1,0 +1,1 @@
+# .zlogout is sourced once we log out of a session. Typically, it performs cleanup or runs specific commands when we log out.
