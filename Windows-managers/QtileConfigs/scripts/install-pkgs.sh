@@ -66,7 +66,7 @@ echo
 
 
 # Check if yay is installed
-echo -e "\031[0;32mChecking and installing PACMAN packages...\031[0m"
+echo "Checking and installing PACMAN packages..."
 tput sgr0
 if ! command -v yay &>/dev/null; then
     echo "Yay is not installed. Installing yay..."
@@ -76,7 +76,7 @@ if ! command -v yay &>/dev/null; then
     cd ..
     rm -rf yay
 else
-    echo "\031[0;31mYay is already installed.\031[0m"
+    echo "Yay is already installed."
 fi
 
 
@@ -85,7 +85,7 @@ echo -e "\031[0;32mChecking and installing AUR packages...\031[0m"
 tput sgr0
 for aur_package in "${AUR_PACKAGES[@]}"; do
     if yay -Qi "$aur_package" &>/dev/null; then
-        echo "AUR package '$aur_package' is already installed.\031[0m"
+        echo "AUR package '$aur_package' is already installed."
         tput sgr0
     else
         echo "Installing AUR package '$aur_package'..."
