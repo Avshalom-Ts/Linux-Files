@@ -31,12 +31,17 @@ PACMAN_PACKAGES=(
     "man"
     "xorg-xrandr"
     "autorandr"
+    "meld"
 )
 
 
 AUR_PACKAGES=(
     "neofetch"
     "visual-studio-code-bin"
+    "microsoft-edge-stable-bin"
+    "discord"
+    "google-chrome"
+    "youtube-music"
 )
 
 
