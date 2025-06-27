@@ -17,26 +17,6 @@ else
     echo "Zsh is already installed."
 fi
 
-# Check if .zshrc file exist in the home directory and its symbolic links, If its regular file, delete it, If its Symbolic, do nothing.
-echo "Creating Symbolic link for .zshrc"
-if [ -f "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
-    echo "Found a regular .zshrc file in the home directory OR its Symbolic link . Deleting it..."
-    rm "$HOME/.zshrc"
-    echo "Creating symbolic link for .zshrc..."
-    ln -s "$HOME/Linux-Files/Windows-managers/.zshrc" "$HOME/.zshrc"
-    echo "Symbolic link for .zshrc created successfully."
-else
-    echo "No regular .zshrc file found or it is already a symbolic link."
-    # If it's a symbolic link, do nothing, else create a symbolic link
-    if [ -L "$HOME/.zshrc" ]; then
-        echo ".zshrc is already a symbolic link."
-    else
-        echo "Creating symbolic link for .zshrc..."
-        ln -s "$HOME/Linux-Files/Windows-managers/.zshrc" "$HOME/.zshrc"
-        echo "Symbolic link for .zshrc created successfully."
-        
-    fi
-fi
 
 
 # Check if .zshenv file exist in the home directory and its symbolic links, If its regular file, delete it, If its Symbolic, do nothing.
@@ -178,6 +158,28 @@ if [ -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]; then
 else
     echo "Installing zsh-autosuggestions plugin..."
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+fi
+
+# Set the zshrc file after installing oh my zsh and plugins due to the fact that oh my zsh will create a default .zshrc file 
+# Check if .zshrc file exist in the home directory and its symbolic links, If its regular file, delete it, If its Symbolic, do nothing.
+echo "Creating Symbolic link for .zshrc"
+if [ -f "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
+    echo "Found a regular .zshrc file in the home directory OR its Symbolic link . Deleting it..."
+    rm "$HOME/.zshrc"
+    echo "Creating symbolic link for .zshrc..."
+    ln -s "$HOME/Linux-Files/Windows-managers/.zshrc" "$HOME/.zshrc"
+    echo "Symbolic link for .zshrc created successfully."
+else
+    echo "No regular .zshrc file found or it is already a symbolic link."
+    # If it's a symbolic link, do nothing, else create a symbolic link
+    if [ -L "$HOME/.zshrc" ]; then
+        echo ".zshrc is already a symbolic link."
+    else
+        echo "Creating symbolic link for .zshrc..."
+        ln -s "$HOME/Linux-Files/Windows-managers/.zshrc" "$HOME/.zshrc"
+        echo "Symbolic link for .zshrc created successfully."
+        
+    fi
 fi
 
 
