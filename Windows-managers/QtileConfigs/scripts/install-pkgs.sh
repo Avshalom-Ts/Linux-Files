@@ -31,11 +31,8 @@ PACMAN_PACKAGES=(
     "man"
     "xorg-xrandr"
     "autorandr"
-<<<<<<< HEAD
     "meld"
-=======
     "lightdm-webkit2-greeter"
->>>>>>> 7dc8d9c (Add LightDM configuration files and update copy script)
 )
 
 
