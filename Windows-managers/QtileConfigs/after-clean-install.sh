@@ -94,6 +94,8 @@ else
     fi
 fi
 
+./scripts/lightdm-conf.sh
+
 
 
 echo
