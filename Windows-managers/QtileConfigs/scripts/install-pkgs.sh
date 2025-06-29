@@ -32,7 +32,8 @@ PACMAN_PACKAGES=(
     "xorg-xrandr"
     "autorandr"
     "meld"
-    "lightdm-webkit2-greeter"
+    # "lightdm-webkit2-greeter"
+    "web-greeter"
 )
 
 
@@ -43,6 +44,7 @@ AUR_PACKAGES=(
     "discord"
     "google-chrome"
     "youtube-music"
+    "shikai-theme"
 )
 
 
