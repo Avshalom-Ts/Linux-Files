@@ -107,7 +107,7 @@ else
     sudo systemctl enable NetworkManager
     sudo systemctl start NetworkManager
     echo "NetworkManager started. You can now run nm-applet."
-    nm-applet &
+    # nm-applet &
 fi
 
 
