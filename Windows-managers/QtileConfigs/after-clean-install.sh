@@ -78,6 +78,7 @@ if [ -f "$HOME/.config/qtile/autostart.sh" ] && [ ! -L "$HOME/.config/qtile/auto
     echo "Creating symbolic link for autostart.sh..."
     # Make autostart.sh executable
     chmod +x "$HOME/Linux-Files/Windows-managers/QtileConfigs/.config/qtile/autostart.sh"
+    # Create the symbolic link
     ln -s "$HOME/Linux-Files/Windows-managers/QtileConfigs/.config/qtile/autostart.sh" "$HOME/.config/qtile/autostart.sh"
     echo "Symbolic link for autostart.sh created successfully."
 else
@@ -89,6 +90,7 @@ else
         echo "Creating symbolic link for autostart.sh..."
         # Make autostart.sh executable
         chmod +x "$HOME/Linux-Files/Windows-managers/QtileConfigs/.config/qtile/autostart.sh"
+        # Create the symbolic link
         ln -s "$HOME/Linux-Files/Windows-managers/QtileConfigs/.config/qtile/autostart.sh" "$HOME/.config/qtile/autostart.sh"
         echo "Symbolic link for autostart.sh created successfully."
     fi
