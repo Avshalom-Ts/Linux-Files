@@ -248,41 +248,8 @@ wl_xcursor_size = 24
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
 
-def to_rads(self, degrees):
-    return degrees * math.pi / 180.0
 
-def draw_wifi(self, percentage):
-
-    WIFI_HEIGHT = 12
-    WIFI_ARC_DEGREES = 90
-
-    y_margin = (self.bar.height - WIFI_HEIGHT) / 2
-    half_arc = WIFI_ARC_DEGREES / 2
-
-    # Draw grey background
-    self.drawer.ctx.new_sub_path()
-    self.drawer.ctx.move_to(WIFI_HEIGHT, y_margin + WIFI_HEIGHT)
-    self.drawer.ctx.arc(WIFI_HEIGHT,
-                        y_margin + WIFI_HEIGHT,
-                        WIFI_HEIGHT,
-                        self.to_rads(270 - half_arc),
-                        self.to_rads(270 + half_arc))
-    self.drawer.set_source_rgb("666666")
-    self.drawer.ctx.fill()
-
-    # Draw white section to represent signal strength
-    self.drawer.ctx.new_sub_path()
-    self.drawer.ctx.move_to(WIFI_HEIGHT, y_margin + WIFI_HEIGHT)
-    self.drawer.ctx.arc(WIFI_HEIGHT
-                        y_margin + WIFI_HEIGHT,
-                        WIFI_HEIGHT * percentage,
-                        self.to_rads(270 - half_arc),
-                        self.to_rads(270 + half_arc))
-    self.drawer.set_source_rgb("ffffff")
-    self.drawer.ctx.fill()
-    
-
-# @hook.subscribe.startup_once
-# def autostart():
-#     subprocess.Popen([os.path.expanduser("~/.config/qtile/autostart.sh")])
+@hook.subscribe.startup_onceR
+def autostart():
+    subprocess.Popen([os.path.expanduser("~/.config/qtile/autostart.sh")])
 
