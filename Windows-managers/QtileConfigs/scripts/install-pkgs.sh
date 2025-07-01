@@ -33,7 +33,8 @@ PACMAN_PACKAGES=(
     "autorandr"
     "meld"
     # "lightdm-webkit2-greeter"
-    
+    "networkmanager"
+    "network-manager-applet"
 )
 
 

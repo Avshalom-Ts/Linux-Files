@@ -96,6 +96,18 @@ fi
 
 ./scripts/lightdm-conf.sh
 
+# Check if NetworkManager is installed and running
+if systemctl is-active --quiet NetworkManager; then
+    echo "NetworkManager is running. Starting nm-applet..."
+    nm-applet &
+else
+    echo "NetworkManager is not running. Please start it manually."
+    sudo systemctl enable NetworkManager
+    sudo systemctl start NetworkManager
+    echo "NetworkManager started. You can now run nm-applet."
+    nm-applet &
+fi
+
 
 
 echo
