@@ -282,7 +282,7 @@ def draw_wifi(self, percentage):
     self.drawer.ctx.fill()
     
 
-@hook.subscribe.startup_once
-def autostart():
-    subprocess.Popen([os.path.expanduser("~/.config/qtile/autostart.sh")])
+# @hook.subscribe.startup_once
+# def autostart():
+#     subprocess.Popen([os.path.expanduser("~/.config/qtile/autostart.sh")])
 
