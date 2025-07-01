@@ -130,7 +130,7 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=2,border_on_single=True, margin=8),
+    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=2,border_on_single=True, margin=6),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -147,7 +147,7 @@ layouts = [
 
 widget_defaults = dict(
     font="sans",
-    fontsize=12,
+    fontsize=14,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
@@ -187,7 +187,10 @@ screens = [
             # margin=[6, 6, 6, 6],  # Margin around the bar
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
-            # background="#282c34",  # Background color of the bar
+            background="#282c34",  # Background color of the bar
+            border_color="#61afef",  # Border color of the bar
+            # border_width=2,  # Border width of the bar
+            margin=[6, 6, 0, 6],  # Margin around the bar
         ),
         # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
         # By default we handle these events delayed to already improve performance, however your system might still be struggling
@@ -249,7 +252,7 @@ wl_xcursor_size = 24
 wmname = "LG3D"
 
 
-@hook.subscribe.startup_onceR
+@hook.subscribe.startup_once
 def autostart():
     subprocess.Popen([os.path.expanduser("~/.config/qtile/autostart.sh")])
 
